@@ -1,0 +1,210 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #446383; /* Cream background */
+  color: #001F3F; /* Navy blue text */
+}
+
+.club-registry {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: #f8eee9; /* Navy blue background */
+  color: #041b67; /* Cream text */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 200px;
+  width: 300px;
+}
+
+.nav-filters button {
+  background-color: transparent;
+  border: 3px solid #023178;
+  font-size: medium;
+  border-radius: 5px;
+  color: #04247b;
+  padding: 10px 30px;
+  margin-left: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-filters button:hover {
+  background-color: #023178;
+  color: #f8eee9;
+}
+
+.title {
+  text-align: center;
+  color: #001F3F;
+  margin: 20px 0;
+}
+
+.club-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.club-card {
+  width: 1000px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.club-card.flipped .card-inner {
+  transform: rotateY(180deg);
+  color: #001F3F;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff; /* Cream background */
+  border: 5px solid #023178; /* Navy blue border */
+  color: #000000; /* Navy blue text */
+  font-size: larger;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  justify-content: flex-start;
+  overflow-y: auto;
+  color: #000000;
+}
+
+.card-back p{
+  color: #000;
+  text-align: left;
+}
+
+.club-type {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.technical {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.non-technical {
+  background-color: #2196F3;
+  color: white;
+}
+
+.card-front img{
+  width: 200px;
+  height:150px;
+  margin-top: 100px;
+  margin-right: 700px;
+  object-fit: contain;
+  max-width: 200px;
+}
+
+
+.card-front h2{
+  flex-grow: 1;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.card-back h2 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.card-front p, .card-back p {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+
+.flip-button {
+  background-color: #001F3F; /* Navy blue background */
+  color: #FFF5E6; /* Cream text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-top: auto;
+  margin-left: 600px;
+}
+
+.flip-button:hover {
+  background-color: #003366; /* Slightly lighter navy blue on hover */
+}
+.dropdown-menu {
+  position: absolute; /* Ensures it is positioned relative to its nearest positioned ancestor */
+  top: 50px; /* Adjust as needed */
+  right: 10px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Higher value to bring it in front of other elements */
+}
+
+.navbar {
+  position: relative; /* To ensure the dropdown is positioned relative to the navbar */
+  z-index: 1000; /* Make sure navbar stays on top of other content */
+  color: #001F3F;
+}
+
+
+@media (max-width: 768px) {
+  .club-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .nav-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .nav-filters button {
+    margin: 5px;
+  }
+}

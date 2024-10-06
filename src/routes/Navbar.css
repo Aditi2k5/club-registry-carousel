@@ -1,0 +1,81 @@
+/* General styling for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-right: auto;
+  background-color: navy;
+  padding: 30px 50px;
+  color: cream;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: cream;
+}
+
+.nav-links {
+  display: flex;
+  margin-right: 100px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: cream;
+  font-size: 1.2em;
+  margin-left: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-button:hover {
+  color: lightgray;
+}
+
+/* Dropdown menu styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  background-color: rgb(129, 172, 207);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  color: black;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: cream;
+  white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+  background-color: #92afcc; /* Lighter navy on hover */
+}
+
+/* Styling for the dropdown arrow */
+.arrow {
+  margin-left: 5px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
