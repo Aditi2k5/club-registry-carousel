@@ -1,67 +1,55 @@
-body, html {
+:root {
+  --cream: #F5E6D3;
+  --dark-blue: #001F3F; /* Dark blue */
+  --violet: #6F2C91; /* Violet */
+  --light-violet: #8E44AD; /* Light violet for contrast */
+  --white: #FFFFFF; /* White for text */
+}
+
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  background-color: #446383; /* Cream background */
-  color: #001F3F; /* Navy blue text */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(180deg, #001F3F, #6F2C91);
+  color: var(--white);
+  transition: background 0.5s;
 }
 
 .club-registry {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.navbar {
-  background-color: #f8eee9; /* Navy blue background */
-  color: #041b67; /* Cream text */
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  height: 200px;
-  width: 300px;
-}
-
-.nav-filters button {
-  background-color: transparent;
-  border: 3px solid #023178;
-  font-size: medium;
-  border-radius: 5px;
-  color: #04247b;
-  padding: 10px 30px;
-  margin-left: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.nav-filters button:hover {
-  background-color: #023178;
-  color: #f8eee9;
-}
-
-.title {
-  text-align: center;
-  color: #001F3F;
-  margin: 20px 0;
-}
-
-.club-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
   padding: 20px;
 }
 
+.filter-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.club-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
 .club-card {
-  width: 1000px;
+  width: 400px; /* Adjusted width for better sizing */
   height: 400px;
   perspective: 1000px;
+  border: 2px solid var(--light-violet);
+  border-radius: 15px;
+  margin-top: 40px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s, box-shadow 0.5s; /* Added box-shadow transition */
+}
+
+.club-card:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px); /* Lift effect on hover */
 }
 
 .card-inner {
@@ -75,7 +63,6 @@ body, html {
 
 .club-card.flipped .card-inner {
   transform: rotateY(180deg);
-  color: #001F3F;
 }
 
 .card-front, .card-back {
@@ -84,127 +71,179 @@ body, html {
   height: 100%;
   backface-visibility: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
   padding: 20px;
   box-sizing: border-box;
-  background-color: #ffffff; /* Cream background */
-  border: 5px solid #023178; /* Navy blue border */
-  color: #000000; /* Navy blue text */
-  font-size: larger;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-radius: 15px;
+}
+
+.card-front {
+  background: var(--dark-blue);
+  color: var(--white);
 }
 
 .card-back {
   transform: rotateY(180deg);
-  justify-content: flex-start;
+  background: var(--dark-blue);
   overflow-y: auto;
-  color: #000000;
+  scrollbar-width: thin; /* Firefox scrollbar width */
+  scrollbar-color: var(--violet) var(--dark-blue); 
 }
 
-.card-back p{
-  color: #000;
-  text-align: left;
+.card-back::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
 }
 
-.club-type {
+.card-back::-webkit-scrollbar-track {
+  background: var(--dark-blue); /* Background of the scrollbar track */
+  border-radius: 50px;
+}
+
+.card-back::-webkit-scrollbar-thumb {
+  background-color: var(--violet); /* Color of the scrollbar thumb */
+  border-radius: 50px;
+}
+
+.card-back::-webkit-scrollbar-thumb:hover {
+  background-color: var(--light-violet); /* Color of the thumb on hover */
+}
+
+.card-back h2, .card-back p {
+  color: white;
+  font-size: 1.2rem; /* Adjusted font size for better readability */
+}
+
+.club-logo {
+  width: 150px; /* Adjusted logo size */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: auto;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.instagram-link, .linkedin-link, .website-link {
+  padding: 10px 15px;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background 0.3s, transform 0.2s; /* Added transition */
+}
+
+.instagram-link:hover, .linkedin-link:hover, .website-link:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 20px; /* Adjusted gap */
+}
+
+.flip-button, .apply-button {
+  padding: 10px 20px;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 20px;
+  border: 2px solid var(--light-violet);
+  background: var(--violet);
+  font-size: 1.2rem; /* Adjusted font size */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Added transition */
+}
+
+.flip-button:hover, .apply-button:hover {
+  background: var(--light-violet);
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.badge {
   position: absolute;
   top: 10px;
   right: 10px;
   padding: 5px 10px;
   border-radius: 15px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: bold;
+  color: var(--white);
+  z-index: 1;
 }
 
-.technical {
-  background-color: #4CAF50;
-  color: white;
+/* Badge styles */
+.badge.technical {
+  background-color: #4CAF50; /* Green for Technical clubs */
 }
 
-.non-technical {
-  background-color: #2196F3;
-  color: white;
+.badge.non-technical {
+  background-color: #2196F3; /* Blue for Non-Technical clubs */
 }
 
-.card-front img{
-  width: 200px;
-  height:150px;
-  margin-top: 100px;
-  margin-right: 700px;
-  object-fit: contain;
-  max-width: 200px;
+.club-card {
+  position: relative;
 }
 
-
-.card-front h2{
-  flex-grow: 1;
-  font-size: 1.5em;
-  margin-bottom: 5px;
+.badges {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.card-back h2 {
-  font-size: 1.5em;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-.card-front p, .card-back p {
+.recruiting-badge {
+  background-color: rgb(255, 0, 0);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 20px;
   font-size: 1em;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 10px;
+  left: 30px;
 }
 
-
-.flip-button {
-  background-color: #001F3F; /* Navy blue background */
-  color: #FFF5E6; /* Cream text */
-  border: none;
-  padding: 10px 20px;
+.category-badge {
+  background-color: rgb(0, 0, 0);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 20px;
   font-size: 1em;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  margin-top: auto;
-  margin-left: 600px;
+  position: absolute;
+  top: 10px;
+  right: 30px;
 }
 
-.flip-button:hover {
-  background-color: #003366; /* Slightly lighter navy blue on hover */
-}
-.dropdown-menu {
-  position: absolute; /* Ensures it is positioned relative to its nearest positioned ancestor */
-  top: 50px; /* Adjust as needed */
-  right: 10px;
-  background-color: white;
-  padding: 10px;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 999; /* Higher value to bring it in front of other elements */
+.category-badge .technical {
+  background-color: rgb(0, 174, 255);
 }
 
-.navbar {
-  position: relative; /* To ensure the dropdown is positioned relative to the navbar */
-  z-index: 1000; /* Make sure navbar stays on top of other content */
-  color: #001F3F;
+.category-badge.non-technical {
+  background-color: rgb(255, 0, 0);
 }
-
 
 @media (max-width: 768px) {
+  .club-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .club-card {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .nav-filters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .nav-filters button {
-    margin: 5px;
+    width: 90%;
   }
 }

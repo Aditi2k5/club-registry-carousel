@@ -1,122 +1,120 @@
 import React, { useState } from 'react';
-import './Modal.css'; // Custom CSS for styling
+import './Modal.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
 
-const Modal = ({ isOpen, onClose }) => {
-  const [isUser, setIsUser] = useState(true); // Toggle between user/admin
-  const [isLogin, setIsLogin] = useState(true); // Toggle between login/register
+const Modal = () => {
+  const [isExistingUser, setIsExistingUser] = useState(true); // true for login, false for register
+  const [email, setEmail] = useState(''); // state to store email input
+  const [password, setPassword] = useState(''); // state to store password input
+  const [errorMessage, setErrorMessage] = useState(''); // state for error message
 
-  if (!isOpen) return null;
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  // Regex pattern for the SRM email validation
+  const emailPattern = /^[a-z]{2}[0-9]{4}@srmist\.edu\.in$/;
+
+  // Function to handle form submission (login or register)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!emailPattern.test(email)) {
+      setErrorMessage('Email must be in the format: xy1234@srmist.edu.in');
+    } else {
+      setErrorMessage('');
+      // On successful login, redirect to the club registry page
+      navigate('/clubregistry'); // Programmatically navigate to ClubRegistry.js
+    }
+  };
+
+  // Toggle between login and register form
+  const toggleForm = () => {
+    setIsExistingUser(!isExistingUser);
+    setErrorMessage(''); // Clear error message when toggling forms
+  };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-box">
-        <button className="close-button" onClick={onClose}>×</button>
+    <div className="modal-container">
+      <div className="modal-intro">
+        <h1 className="intro-text">Welcome to ClubHub</h1>
+        <p className="intro-subtext">
+          Discover amazing student clubs at SRM University. Join clubs, attend events, and grow your network!
+        </p>
+      </div>
 
-        {/* Tab Buttons to switch between User and Admin */}
-        <div className="tab-buttons">
-          <button
-            className={isUser ? 'active' : ''}
-            onClick={() => setIsUser(true)}
-          >
-            User
-          </button>
-          <button
-            className={!isUser ? 'active' : ''}
-            onClick={() => setIsUser(false)}
-          >
-            Admin
-          </button>
-        </div>
-
-        {/* Conditionally render the forms */}
-        <div className="modal-content">
-          {isUser ? (
-            isLogin ? (
-              <UserLoginForm setIsLogin={setIsLogin} />
-            ) : (
-              <UserRegisterForm setIsLogin={setIsLogin} />
-            )
-          ) : isLogin ? (
-            <AdminLoginForm setIsLogin={setIsLogin} />
-          ) : (
-            <AdminRegisterForm setIsLogin={setIsLogin} />
-          )}
-        </div>
+      <div className="modal">
+        {isExistingUser ? (
+          // Login Form
+          <>
+            <h2 className="modal-header">Login</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label className="form-label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="form-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  className="form-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
+              <button type="submit" className="submit-button">Login</button>
+            </form>
+            <p className="toggle-text">
+              Don't have an account?{' '}
+              <button onClick={toggleForm} className="toggle-button">
+                Register here
+              </button>
+            </p>
+          </>
+        ) : (
+          // Register Form
+          <>
+            <h2 className="modal-header">Register</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label className="form-label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="form-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  className="form-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
+              <button type="submit" className="submit-button">Register</button>
+            </form>
+            <p className="toggle-text">
+              Already have an account?{' '}
+              <button onClick={toggleForm} className="toggle-button">
+                Login here
+              </button>
+            </p>
+          </>
+        )}
       </div>
     </div>
   );
 };
-
-const UserLoginForm = ({setIsLogin}) => (
-  <div className="form-container">
-    <h2>User Login</h2>
-    <form>
-      Email: <input type="email" placeholder="Eg: xy12345@srmist.edu.in" required />
-      <br></br>
-      Password: <input type="password" placeholder="Password" required />
-      <br></br>
-      <button type="submit">Login</button>
-      <p>Don't have an account? <a href="#" onClick={() => setIsLogin(false)}><br></br>
-      Register Here</a></p>
-    </form>
-  </div>
-);
-
-const UserRegisterForm = ({setIsLogin}) => (
-  <div className="form-container">
-    <h2>User Register</h2>
-    <form>
-      Email: <input type="email" placeholder="Email" required />
-      <br></br>
-      Password: <input type="password" placeholder="Password" required />
-      <br></br>
-      <button type='submit'>Register</button>
-      <p>
-        Already have an account?{' '}
-        <a href="#" onClick={() => setIsLogin(true)}><br></br>
-          Login Here
-        </a>
-      </p>
-      
-    </form>
-  </div>
-);
-
-const AdminLoginForm = ({setIsLogin}) => (
-  <div className="form-container">
-    <h2>Admin Login</h2>
-    <form>
-      Email: <input type="email" placeholder="Admin Username" required />
-      <br></br>
-      Password: <input type="password" placeholder="Password" required />
-      <br></br>
-      <button type="submit">Login</button>
-      <p>
-      Don't have an account?{' '}
-        <a href="#" onClick={() => setIsLogin(false)}><br></br>
-          Register Here
-      </a></p>
-    </form>
-  </div>
-);
-
-const AdminRegisterForm = ({setIsLogin}) => (
-  <div className="form-container">
-    <h2>Admin Register</h2>
-    <form>
-      Email: <input type="email" placeholder="Admin Email" required />
-      <br></br>
-      Password: <input type="password" placeholder="Password" required />
-      <br></br>
-      <button type='submit'>Register</button>
-      <p>
-      Already have an account?{' '}
-        <a href="#" onClick={() => setIsLogin(true)}><br></br>
-          Login Here
-        </a>
-      </p>
-    </form>
-  </div>
-);
 
 export default Modal;
