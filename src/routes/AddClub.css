@@ -1,0 +1,75 @@
+.add-club-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 20px 0px 20px; /* Remove bottom padding */
+    background-color: #1c1b42; /* Navy background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    min-height: 100vh; /* Full viewport height to avoid gaps */
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .add-club-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #a29bfe; /* Light purple heading */
+    font-size: 28px;
+  }
+  
+  .add-club-form form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .add-club-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #dfe6e9;
+  }
+  
+  .add-club-form input,
+  .add-club-form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 2px solid #6c5ce7; /* Purple border */
+    border-radius: 8px;
+    background-color: #2c2b58; /* Dark navy input background */
+    color: #ffffff;
+    font-size: 16px;
+  }
+  
+  .add-club-form input[type="file"] {
+    padding: 8px;
+    background-color: #2c2b58;
+  }
+  
+  .add-club-form input:focus,
+  .add-club-form textarea:focus {
+    border-color: #a29bfe; /* Light purple focus */
+    outline: none;
+  }
+  
+  .add-club-form button {
+    padding: 12px;
+    background-color: #6c5ce7; /* Purple button */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-club-form button:hover {
+    background-color: #4e3edb; /* Darker purple on hover */
+  }
+  
+  .add-club-form button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #6c5ce7;
+  }
+  

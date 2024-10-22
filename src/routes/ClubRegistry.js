@@ -14,6 +14,7 @@ const clubs = [
         domains:'Design, Media, Content, PR, Marketing, R&D',
         events:'No event as of now',
         logo: '/logos/SKETCH.jpeg',
+        leads:'President:Shanjo,Vice-President:Adesh, Marketing Lead:Monica',
         instagram: 'https://www.instagram.com/cyborg_club_srm_ist/',
         linkedin:'https://www.linkedin.com/company/sketch-srm/posts/?feedView=all',
         applyLink: 'https://yourschool.edu/apply-chess-club',
@@ -299,7 +300,7 @@ const ClubCard = ({ club }) => {
           <h2 className="club-name">{club.name}</h2>
           <button className="flip-button">Know More</button>
           <div className="badges">
-        {club.isRecruiting && <span className="recruiting-badge">Recruiting</span>}
+        {club.isRecruiting && <span className="recruiting-badge"> Recruiting</span>}
  
       </div>
         </div>

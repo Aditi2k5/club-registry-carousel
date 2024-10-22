@@ -29,3 +29,57 @@
   background-color: #f0e5d200; /* Lighter cream on hover */
   cursor: pointer;
 }
+/* Hamburger menu icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 30px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .nav-buttons {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(0, 51, 102, 0.955); /* Opaque navy-blue background */
+    width: 100%;
+    padding: 20px 0;
+    gap: 20px;
+    z-index: 10;
+    border-radius: 10px;
+    border-top: 2px solid rgba(255, 255, 255, 0.004); /* A border to separate from the navbar */
+  }
+
+  .nav-buttons.active {
+    display: flex;
+  }
+
+  .nav-buttons button {
+    width: 60%; /* Better sizing for mobile view */
+    margin: 0 auto;
+    padding: 15px 20px; /* Slightly larger padding for mobile */
+    background-color: #5900ff00; /* Violet for mobile buttons */
+    font-size: 1.2rem;
+    border-radius: 10px;
+
+  }
+
+  .nav-buttons button:hover {
+    background-color: #4311a6; /* Darker violet on hover */
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
