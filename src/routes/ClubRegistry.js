@@ -10,7 +10,7 @@ const clubs = [
         id:1,
         name: 'SKETCH', 
         description: 'Training students who are interested in artistic ability', 
-        type:'non-technical',
+        type:'technical',
         domains:'Design, Media, Content, PR, Marketing, R&D',
         events:'No event as of now',
         logo: '/logos/SKETCH.jpeg',
@@ -25,7 +25,7 @@ const clubs = [
         id:2,
         description: 'Illustrate on what robotics is, along with the various types of robots',
         type:'technical',
-        events:'No event as of now',
+        events:'https://forms.gle/PN6w7cP5JXa5LWFj9',
         leads:'President: Othi Raja, Vice President: Vinay Medida, Secretary: Sanjaai',
         logo: '/logos/CYBORG.jpg',
         instagram: 'https://www.instagram.com/cyborg_club_srm_ist/',
@@ -56,7 +56,7 @@ const clubs = [
         linkedin:'https://www.linkedin.com/company/slug-n-plug/',
         website:'https://slugnplug.vercel.app/',
         applyLink: 'https://forms.gle/eR57YJVEN8Qhsbmg8',
-        isRecruiting:true 
+        isRecruiting:false 
     },
     { 
         name: 'TECH PRO', 
@@ -112,7 +112,7 @@ const clubs = [
         instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
         linkedin:'https://www.linkedin.com/company/techwiz-srmrmp/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company%3BR%2BSsR0wbRJebAQauAS8oBQ%3D%3D',
         applyLink: 'https://forms.gle/fCVsLkFn7ZD1NeHV9',
-        isRecruiting:true
+        isRecruiting:false
     },
     { 
         name: 'DEVELOPERS STUDENTS CLUB', 
@@ -282,7 +282,7 @@ const clubs = [
       logo: '/logos/CAM O GENICS.png',
       instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
       applyLink: 'https://forms.gle/GCaeQoYkskujBPzs6',
-      isRecruiting:true
+      isRecruiting:false
     },
 ]
 
@@ -306,7 +306,15 @@ const ClubCard = ({ club }) => {
         </div>
         <div className="card-back">
           <p><strong>Description:</strong><br></br> {club.description}</p>
-          <p><strong>Events:</strong><br></br> {club.events}</p>
+          {club.name === "CYBORG" ? (
+        <p><b>Events:</b><br></br>
+            <a href="https://forms.gle/PN6w7cP5JXa5LWFj9" target="_blank" rel="noopener noreferrer" className="link-events">
+                Perspective Panorama 2.0 - Register Now
+            </a>
+        </p>
+    ) : (
+        <p><b>Events:</b><br></br> {club.events}</p>
+    )}
           <p><strong>Team Leads:</strong><br></br> {club.leads}</p>
           <p><strong>Domains:</strong><br></br> {club.domains}</p>
           <div className="card-actions"> 
@@ -334,7 +342,7 @@ const ClubCard = ({ club }) => {
 
 const ClubRegistry = () => {
   const [filteredClubs, setFilteredClubs] = useState(clubs);  // Show all clubs by default
-
+  
   // Function to filter clubs by type
   const filterClubs = (type) => {
     if (type === 'all') {

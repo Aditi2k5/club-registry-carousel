@@ -28,6 +28,10 @@ body {
   margin-bottom: 20px;
 }
 
+.link-events{
+  color: rgb(183, 152, 255);
+}
+
 .club-cards {
   display: flex;
   flex-wrap: wrap;
