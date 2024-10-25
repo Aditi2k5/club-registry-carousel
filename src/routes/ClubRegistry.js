@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import './ClubRegistry.css';
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
-import { FaExternalLinkSquareAlt } from "react-icons/fa";
 import Navbar from "./Navbar";
 
 const clubs = [
