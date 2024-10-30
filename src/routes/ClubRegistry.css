@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(180deg, #001F3F, #6F2C91);
+  background: linear-gradient(180deg, #2a0176,#003f72);
   color: var(--white);
   transition: background 0.5s;
 }
@@ -41,7 +41,7 @@ body {
 
 .club-card {
   width: 400px; /* Adjusted width for better sizing */
-  height: 400px;
+  height: 350px;
   perspective: 1000px;
   border: 2px solid var(--light-violet);
   border-radius: 15px;
@@ -49,6 +49,39 @@ body {
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.5s, box-shadow 0.5s; /* Added box-shadow transition */
+}
+
+.club-domains,
+.club-leads,
+.club-events {
+    margin: 8px 0;
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.4;
+}
+
+.club-domains strong,
+.club-leads strong,
+.club-events strong {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.club-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.social-icon {
+    font-size: 1.5em;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #0073b1; /* Example: Changes to LinkedIn blue */
 }
 
 .club-card:hover {
@@ -84,13 +117,13 @@ body {
 }
 
 .card-front {
-  background: var(--dark-blue);
+  background: #003866;
   color: var(--white);
 }
 
 .card-back {
   transform: rotateY(180deg);
-  background: var(--dark-blue);
+  background: #003866;
   overflow-y: auto;
   scrollbar-width: thin; /* Firefox scrollbar width */
   scrollbar-color: var(--violet) var(--dark-blue); 
@@ -198,7 +231,9 @@ body {
 .badge.non-technical {
   background-color: #2196F3; /* Blue for Non-Technical clubs */
 }
-
+.badge.student{
+  background-color: #dc3545;
+}
 .club-card {
   position: relative;
 }

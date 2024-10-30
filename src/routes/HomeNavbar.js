@@ -57,6 +57,10 @@ const Navbar = ({ filterClubs }) => {
             filterClubs('non-technical');
             toggleSidebar();
           }}>Non-Technical</button>
+          <button onClick={() => {
+            filterClubs('student');
+            toggleSidebar();
+          }}>Student Chapters</button>
 
           {/* Link to Calendar Page */}
           <Link to="/calendar" className="sidebar-button" onClick={toggleSidebar}>
@@ -64,9 +68,6 @@ const Navbar = ({ filterClubs }) => {
           </Link>
         </div>
       </div>
-
-
-
 
       {/* Info Bar */}
       <div className="info-bar">

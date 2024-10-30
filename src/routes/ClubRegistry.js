@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './ClubRegistry.css';
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
+import { RxExternalLink } from "react-icons/rx";
 import Navbar from "./HomeNavbar";
 
 const clubs = [
@@ -24,7 +25,7 @@ const clubs = [
         id:2,
         description: 'Illustrate on what robotics is, along with the various types of robots',
         type:'technical',
-        events:'https://forms.gle/PN6w7cP5JXa5LWFj9',
+        events:'No event as of now',
         leads:'President: Othi Raja, Vice President: Vinay Medida, Secretary: Sanjaai',
         logo: '/logos/CYBORG.jpg',
         instagram: 'https://www.instagram.com/cyborg_club_srm_ist/',
@@ -80,7 +81,7 @@ const clubs = [
         leads:'President- Karthik, Tech- Dhruv, Non-tech- Sabarish',
         events:'No event as of now',
         logo: '/logos/TECH VAYUNA.jpg',
-        instagram: 'https://www.instagram.com/cyborg_club_srm_ist/',
+        instagram: 'https://www.instagram.com/tech_vayuna/',
         linkedin:'https://www.linkedin.com/company/techvayuna/?originalSubdomain=in',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false 
@@ -89,12 +90,12 @@ const clubs = [
         name: 'LOGIC PLAY', 
         id:7,
         description: 'Increase the creative and logical thinking of students by organizing various events such as seminars, activities etc.',
-        type:'non-technical',
+        type:'technical',
         domains:'Technical, Design, Management, Video Editing, PR',
         leads:'President- Priyanka Chitirala, Tech-Madhumita Jha, Management-Shambhavi Pandey, Design-Akhilesh',
         events:'No event as of now',
         logo: '/logos/LOGIC PLAY.png',
-        instagram: 'https://www.instagram.com/cyborg_club_srm_ist/',
+        instagram: 'https://www.instagram.com/logic_play/',
         linkedin:'https://www.linkedin.com/company/logic-play/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company%3BGITLIpspTH%2BcTsx8Jjc%2B%2FA%3D%3D',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false  
@@ -108,7 +109,7 @@ const clubs = [
         leads:'President-Om Daq, Tech-Aayush Barik, Design-Sathvik, Marketing-Anushka Kai, Media- Pratyush',
         events:'No event as of now',
         logo: '/logos/TECH WIZ.jpeg',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        instagram: 'https://www.instagram.com/techwiz_rmp/',
         linkedin:'https://www.linkedin.com/company/techwiz-srmrmp/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company%3BR%2BSsR0wbRJebAQauAS8oBQ%3D%3D',
         applyLink: 'https://forms.gle/fCVsLkFn7ZD1NeHV9',
         isRecruiting:false
@@ -122,7 +123,7 @@ const clubs = [
         leads:'President-Prashanth G',
         events:'No event as of now',
         logo: '/logos/DSC.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        instagram: 'https://www.instagram.com/dscsrmrmp/',
         linkedin:'https://www.linkedin.com/company/dsc-srm-ramapuram/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company%3BGITLIpspTH%2BcTsx8Jjc%2B%2FA%3D%3D',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false
@@ -132,7 +133,7 @@ const clubs = [
         id:10,
         description: 'For university students to learn mobile and web development skills',
         type:'technical', 
-        domains:'competitive Programing, Web Development, Designing, Content Writing, PR and Marketing, Photography',
+        domains:'Competitive Programing, Web Development, Designing, Content Writing, PR and Marketing, Photography',
         leads:'President- Abhay Singh',
         events:'No event as of now',
         logo: '/logos/SYNERGY.png',
@@ -149,8 +150,9 @@ const clubs = [
         leads:'President-Ketaki Shinde, Tech-Sahil, Design-Prathmesh Bajpai, Management and content- Animesh Kumar',
         events:'No event as of now',
         logo: '/logos/CODEZILLA.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        instagram: 'https://www.instagram.com/codezillaclub/',
         linkedin:'https://www.linkedin.com/company/codezillaclub/',
+        website:'https://www.codezillaclub.tech/',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false
     },
@@ -162,7 +164,7 @@ const clubs = [
         domains:'Technical, Content, Design, Management',
         events:'No event as of now',
         logo: '/logos/ANDROPEDIA.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        instagram: 'https://www.instagram.com/andropedia_srm.rmp/',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false
     },
@@ -170,11 +172,11 @@ const clubs = [
         name: 'National Service Scheme(NSS)', 
         id:13,
         description: 'Mainly focused on Community Development Services, Social Services, Environmental Awareness Programs, Health Awareness Programs and Technology Transfer Programs', 
-        type:'non-technical', 
+        type:'student', 
         leads:'President- Gireesh',
         events:'No event as of now',
         logo: '/logos/NSS.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        instagram: 'https://www.instagram.com/srmist_nss/',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false
     },
@@ -186,7 +188,7 @@ const clubs = [
         domains:'Technical, Content, Design, Management',
         events:'No event as of now',
         logo: '/logos/GAMECOM.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        linkedin: 'https://www.linkedin.com/company/gamecomclub/',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false
     },
@@ -199,10 +201,10 @@ const clubs = [
         leads:'Technical- Stuti, Design- Auston, Management- Divyasree',
         events:'No event as of now',
         logo: '/logos/CODEKRAFTERS.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
-        linkedin:'https://www.linkedin.com/company/codechef-srmrmp/',
+        instagram: 'https://www.instagram.com/codekrafterssrm.rmp/',
+        linkedin:'https://in.linkedin.com/company/codechef-srmrmp',
         applyLink: 'https://forms.gle/EbJuufCQbZcE4cmS6',
-        isRecruiting:true
+        isRecruiting:false
     },
     { 
         name: 'LITERARY CLUB', 
@@ -226,7 +228,7 @@ const clubs = [
         domains:'Technical, Content, Design, Marketing Management',
         events:'No event as of now',
         logo: '/logos/CHIPSET.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        instagram: 'https://www.instagram.com/chipsetsrmrmp/',
         linkedin:'https://www.linkedin.com/company/chipsetsrmramapuram',
         applyLink: 'https://yourschool.edu/apply-chess-club',
         isRecruiting:false
@@ -241,48 +243,72 @@ const clubs = [
         leads:'President-Charanya R, Design-Harsshita S, Content- Aishwarya R, PR- Abirami S, Events- Ruhi Fatima, Media- Vikram Rakshit',
         events:'No event as of now',
         logo: '/logos/FLC.png',
-        instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+        instagram: 'https://www.instagram.com/flc_srmist_rmp_/',
         linkedin:'https://www.linkedin.com/company/foreign-language-club-srmist/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company%3BGITLIpspTH%2BcTsx8Jjc%2B%2FA%3D%3D',
         applyLink: 'https://forms.gle/xYANVt7mzAWbUP3t5',
         isRecruiting:false
     },
     { 
       name: 'FEMCODES', 
-      id:20,
+      id:19,
       description: 'Create a platform to help programmers make it big in the world of algorithms and computer programming',
       type:'technical', 
       events:'No event as of now',
+      leads:'President: S.Melba, Vice-President: R.B. Vanmathi',
       logo: '/logos/FEMCODES.png',
-      instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+      instagram: 'https://www.instagram.com/femcodesitsrm/?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D',
       linkedin:'https://www.linkedin.com/company/femcodes-srm-rmp',
       applyLink: 'https://yourschool.edu/apply-chess-club',
       isRecruiting:false
     },
     { 
       name: 'GEEKS FOR GEEKS', 
-      id:21,
+      id:20,
       description: 'Create a platform to help programmers make it big in the world of algorithms and computer programming',
       type:'technical', 
       logo: './logos/GFG.png',
       events:'No event as of now',
-      instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
       linkedin:'https://www.linkedin.com/company/geeksforgeeks-srm-rmp/',
       applyLink: 'https://yourschool.edu/apply-chess-club',
       isRecruiting:false
     },
     { 
       name: 'CAM O GENICS', 
-      id:22,
+      id:21,
       description: 'Create a platform to help programmers make it big in the world of algorithms and computer programming',
       type:'non-technical',
       domains: 'Photography, Videography',
       events:'No event as of now',
       leads:'President - Sabari Vasan, Secretary - Saran, Treasurer - Praisy Daffodil, Head of Photography - Vinith Kumar, Head of Videography - Dhinesh Kumar',
       logo: '/logos/CAM O GENICS.png',
-      instagram: 'https://www.instagram.com/techpro_club?igsh=Y3B4eXBhNXQ0dTZ4',
+      instagram: 'https://www.instagram.com/srmrcog/',
       applyLink: 'https://forms.gle/GCaeQoYkskujBPzs6',
       isRecruiting:false
     },
+    { 
+      name: 'Computer Society of India(CSI)', 
+      id:22,
+      description: 'Formed In 1965,CSI Has been Instrumental In Guiding The Indian IT Industry .Today, The CSI has 72 Chapters,511 Student Branches & More Than 100000 Members',
+      type:'student',
+      events:'No event as of now',
+      leads:'Student Coordinators: A.R.Madhesh, Jayesh. D',
+      logo: '/logos/CSI.png',
+      applyLink: 'https://forms.gle/GCaeQoYkskujBPzs6',
+      isRecruiting:false
+    },
+    {
+      name: 'SRM E&T Campus Life', 
+      id:23,
+      description: 'Society with a stimulating environment for cultural activities, encouraging students to venture beyond the realms of academics',
+      type:'student',
+      events:'No event as of now',
+      leads:'President - Gireesh ',
+      logo: '/logos/CAMPUSLIFE.png',
+      instagram: 'https://www.instagram.com/srmrcampuslife.fet/',
+      applyLink: 'https://forms.gle/GCaeQoYkskujBPzs6',
+      isRecruiting:false
+    },
+    
 ]
 
 const ClubCard = ({ club }) => {
@@ -305,30 +331,41 @@ const ClubCard = ({ club }) => {
         </div>
         <div className="card-back">
           <p><strong>Description:</strong><br></br> {club.description}</p>
-          {club.name === "CYBORG" ? (
-        <p><b>Events:</b><br></br>
-            <a href="https://forms.gle/PN6w7cP5JXa5LWFj9" target="_blank" rel="noopener noreferrer" className="link-events">
-                Perspective Panorama 2.0 - Register Now
-            </a>
-        </p>
-    ) : (
-        <p><b>Events:</b><br></br> {club.events}</p>
-    )}
-          <p><strong>Team Leads:</strong><br></br> {club.leads}</p>
-          <p><strong>Domains:</strong><br></br> {club.domains}</p>
+          <p><strong>Events:</strong><br></br> {club.events}</p>
+          {club.leads && (
+                <div className="club-leads">
+                    <strong>Leads:</strong><br></br> {club.leads}
+                </div>
+            )}
+          {club.domains && (
+                <div className="club-domains">
+                    <strong>Domains:</strong><br></br> {club.domains}
+                </div>
+            )}
           <div className="card-actions"> 
-            <p><strong>Socials:</strong>
             <div className="socials">
-              <a href={club.instagram} target="_blank" rel="noopener noreferrer" className="instagram-link">
-              <FaInstagramSquare size={50} /></a>
-            <a href={club.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">
-              <FaLinkedin size={50} /></a>
-  
+            {club.instagram && (
+                    <a href={club.instagram} target="_blank" rel="noopener noreferrer" className="instagram-link">
+                      <FaInstagramSquare size={50} />
+                    </a>
+                  )}
+                  {club.linkedin && (
+                    <a href={club.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">
+                      <FaLinkedin size={50} />
+                    </a>
+                  )}
+                  {club.website && (
+                    <a href={club.website} target="_blank" rel="noopener noreferrer" className="linkedin-link">
+                      <RxExternalLink size={50} />
+                    </a>
+                  )}
             </div>
-            </p>
+
           </div>
           <div className="button-container">
-            <a href={club.applyLink} className="apply-button">Apply</a>
+          {club.isRecruiting && (
+              <a href={club.applyLink} className="apply-button">Apply</a>
+            )}
           <button className="flip-button">Back</button>
           </div>
           
